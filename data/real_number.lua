@@ -1,9 +1,9 @@
-require ("number")
-Real = {}
-Real = Number:new(nil, "RealNumber")
-setmetatable(Real, {__index = Number})
+local Number = require ("number")
+local Real = {}
 
-function Real:new(value)
-  self:setValue(value)
-  return self
+setmetatable(Real, {__index = Number})
+--
+function Number:getType()
+  return "Real Number"
 end
+return Real

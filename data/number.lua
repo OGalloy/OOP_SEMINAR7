@@ -1,12 +1,11 @@
 --Базовый класс Number
-Number = {}
+local Number = {}
 
-function Number:new (value, actualType)
+function Number:new (value)
   
   --Приватные данные
   local private = {}
     private.value = value
-    private.actualType = actualType 
   
   --Публичные данные и методы
   local public = {}
@@ -17,12 +16,11 @@ function Number:new (value, actualType)
   function public:setValue(newValue)
     private.value = newValue
   end
-  --
-  function public:getType()
-    return private.actualType
-  end
-  --
+  --Устанавливаем для public Метатаблицу Number
   setmetatable(public, self)
+  
   self.__index = self
   return public
 end
+
+return Number

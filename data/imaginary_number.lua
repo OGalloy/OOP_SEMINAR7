@@ -1,9 +1,16 @@
-require ("number")
+local Number = require ("number")
 Imaginary = {}
-Imaginary = Number:new(nil, "Imaginary")
-setmetatable(Imaginary, {__index = Number})
 
-function Imaginary:new(value)
-  self:setValue(value)
-  return self
+setmetatable(Imaginary, {__index = Number})
+--
+function Number:getType()
+  return "Imaginary Number"
 end
+return Imaginary
+--[[com1 = Imaginary:new(1234)
+com2 = Imaginary:new(234)
+
+print(com1.getValue())
+print(com2.getValue())
+print(com2.getType())
+print(com1.getType())]]--
